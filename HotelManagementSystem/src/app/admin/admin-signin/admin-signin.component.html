@@ -1,9 +1,9 @@
 <div class="container" style="width: 450px; padding-top: 30px;">
     <div class="text-center"><img src="../../../assets/admin.png" height="70px" width="100px" alt="admin-log"></div>
     <h2 class="text-center"> Admin Login</h2>
-    <form style="margin-top: 30px;">
+    <form style="margin-top: 30px;" #signin="ngForm" (ngSubmit)="onSubmit()">
         <div class="mb-3">
-          <input type="text" class="form-control" placeholder="User Name" id="userName"name="userName" ngModel style="height: 50px;">
+          <input type="text" class="form-control" placeholder="User Name" id="userName"name="uname" ngModel style="height: 50px;">
         </div>
         <div class="mb-3">
           <input type="text" class="form-control" placeholder="Password" id="password"name="password" ngModel style="height: 50px;" autocomplete="off">

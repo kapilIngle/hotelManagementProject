@@ -1,0 +1,40 @@
+<div class="container mt-4 pt-4 pb-2 rounded px-3 bg-light" style="width: 440px;">
+    <h3 class="text-center">Hotel Details</h3>
+    
+    <form [formGroup]="hotelDetailsForm" (ngSubmit)="onSubmit()">
+      <div class="mb-2">
+        <input type="text" class="form-control" id="hotelName" placeholder="Hotel Name" formControlName="hotelName">
+      </div>
+      <div class="mb-2">
+        <input type="text" class="form-control" id="rating" placeholder="Rating" formControlName="rating">
+      </div>
+      <div class="mb-2">
+        <input type="text" class="form-control" id="price" placeholder="Price" formControlName="price">
+      </div>
+      <div class="mb-2">
+        <input type="text" class="form-control" id="roomSiz" placeholder="Room Size" formControlName="roomSiz">
+      </div>
+      <div class="mb-2">
+        <input type="text" class="form-control" id="roomDis" placeholder="Room Discription" formControlName="roomDis">
+      </div>
+      <div class="mb-2">
+        <input type="text" class="form-control" id="address" placeholder="Address" formControlName="address">
+      </div>
+      <div class="mb-2">
+        <input type="text" class="form-control" id="availability" placeholder="Availability" formControlName="availability">
+      </div>
+      <div class="mb-2">
+        <input type="text" class="form-control" id="image" placeholder="Image" formControlName="image">
+      </div>
+      <div *ngIf="edit">
+        <button type="submit" class="btn btn-success w-100" (click)="saveEdit()">Save Changes</button>
+      </div>
+      <div *ngIf="!edit">
+        <button type="submit" class="btn btn-success w-100" (click)="newHotelRegister()">Register</button>
+      </div>
+      
+    </form>
+    <div class="text-center mt-2">
+      <span class="text-dark" style="text-decoration: underline;" routerLink="/owner/ownerSuccess"><a>{{edit ? 'Cancle edit?' : 'Cancel registration'}}</a></span>
+    </div>
+</div>

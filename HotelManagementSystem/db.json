@@ -91,23 +91,174 @@
       "lastname": "Sawale",
       "mobile": "1029384756",
       "mail": "sarika99@example.com",
-      "uname": "kapil@123",
-      "password": "111",
+      "uname": "ashu@123",
+      "password": "12345",
       "confirmPassword": "111",
       "gender": "female",
       "hobbies": true,
       "id": 2
+    },
+    {
+      "firstname": "Emma",
+      "lastname": "Stone",
+      "mobile": "8442575334",
+      "mail": "emma@beauty.com",
+      "uname": "emma@123",
+      "password": "12345",
+      "confirmPassword": "12345",
+      "gender": "female",
+      "hobbies": true,
+      "id": 3
+    },
+    {
+      "firstname": "Vishal",
+      "lastname": "Sawale",
+      "mobile": "0987654321",
+      "mail": "vishal@123.com",
+      "uname": "vishal@123",
+      "password": "12345",
+      "confirmPassword": "12345",
+      "gender": "male",
+      "hobbies": true,
+      "id": 4
     }
   ],
-  "owner": {
-    "firstname": "Avinash",
-    "lastname": "Suryawanshi",
-    "mobile": "0987654321",
-    "mail": "avi@example.com",
-    "uname": "avinash@123",
-    "password": "111",
-    "confirmPassword": "111",
-    "gender": "male",
-    "hobbies": ""
-  }
+  "owner": [
+    {
+      "firstname": "Poonam",
+      "lastname": "Patil",
+      "mobile": "1234567890",
+      "mail": "poonam@123.com",
+      "uname": "poonam@123",
+      "password": "12345",
+      "confirmPassword": "12345",
+      "gender": "female",
+      "hobbies": true,
+      "id": 1
+    },
+    {
+      "firstname": "Avinash",
+      "lastname": "Suryawanshi",
+      "mobile": "0987654321",
+      "mail": "avi@example.com",
+      "uname": "avinash@123",
+      "password": "12345",
+      "confirmPassword": "12345",
+      "gender": "male",
+      "hobbies": true,
+      "id": 2
+    }
+  ],
+  "hotelList": [
+    {
+      "hotelName": "Marriott Resort and Spa",
+      "rating": "4.5",
+      "price": 17495,
+      "roomSiz": "425 sq.ft",
+      "roomDis": "1 Queen bed or 2 Twin Bed(s)",
+      "address": "Panaji, Main street, Goa",
+      "availability": "Yes",
+      "image": "../../../assets/hotel-list-1.jpg",
+      "id": 1
+    },
+    {
+      "hotelName": "Majestic Beach Comforts-Beachfront",
+      "rating": "4.4",
+      "price": 3053,
+      "roomSiz": "350 sq.ft",
+      "roomDis": "1 Queen bed",
+      "address": "Varca Beach, Goa",
+      "availability": "Yes",
+      "image": "../../../assets/hotel-list-2.jpg",
+      "id": 2
+    },
+    {
+      "hotelName": "The Orchid Hotel Mumbai",
+      "rating": "4.5",
+      "price": 6499,
+      "roomSiz": "225 sq.ft",
+      "roomDis": "Twin Bed",
+      "address": "Vile Parle, Mumbai",
+      "availability": "Yes",
+      "image": "../../../assets/hotel-list-3.jpg",
+      "id": 3
+    },
+    {
+      "hotelName": "Sofitel Mumbai BKC- Luxury Brand by Accor",
+      "rating": "4.8",
+      "price": 14000,
+      "roomSiz": "325 sq.ft",
+      "roomDis": "King Bed",
+      "address": "Bandra Kurla Complex, Mumbai",
+      "availability": "Yes",
+      "image": "../../../assets/hotel-list-4.jpg",
+      "id": 4
+    },
+    {
+      "hotelName": "ITC Grand Central - A Luxury Collection Hotel",
+      "rating": "4.5",
+      "price": 15500,
+      "roomSiz": "312 sq.ft",
+      "roomDis": "Queen Bed",
+      "address": "South Mumbai",
+      "availability": "Yes",
+      "image": "../../../assets/hotel-list-5.jpg",
+      "id": 5
+    },
+    {
+      "hotelName": "Rah Bagh by The Orchard",
+      "rating": "4.1",
+      "price": 15040,
+      "roomSiz": "316 sq.ft",
+      "roomDis": "Twin Bed",
+      "address": "Shreenagar",
+      "availability": "Yes",
+      "image": "../../../assets/hotel-list-6.jpg",
+      "id": 6
+    },
+    {
+      "hotelName": "The Cheese Cottage Homestay",
+      "rating": "4.8",
+      "price": 22713,
+      "roomSiz": "144 sq.ft",
+      "roomDis": "2 x Queen Bed",
+      "address": "Tangmarg, Shreenagar",
+      "availability": "Yes",
+      "image": "../../../assets/hotel-list-7.jpg",
+      "id": 7
+    },
+    {
+      "hotelName": "Gokulam Grand Hotel & Spa",
+      "rating": "4.1",
+      "price": 5293,
+      "roomSiz": "425 sq.ft",
+      "roomDis": "1 King bed or 2 Twin Bed(s)",
+      "address": "Mathikere, Bengaluru",
+      "availability": "Yes",
+      "image": "../../../assets/hotel-list-8.jpg",
+      "id": 8
+    },
+    {
+      "hotelName": "The Oberoi",
+      "rating": "4.7",
+      "price": 24500,
+      "roomSiz": "342 sq.ft",
+      "roomDis": "Queen Bed",
+      "address": "Ulsoor, Bengaluru",
+      "availability": "Yes",
+      "image": "../../../assets/hotel-list-9.jpg",
+      "id": 9
+    },
+    {
+      "hotelName": "Palm Meadows Resort",
+      "rating": "4.2",
+      "price": 18800,
+      "roomSiz": "288 sq.ft",
+      "roomDis": "King Bed",
+      "address": "Whitefield, Bengaluru",
+      "availability": "Yes",
+      "image": "../../../assets/hotel-list-10.jpg",
+      "id": 10
+    }
+  ]
 }

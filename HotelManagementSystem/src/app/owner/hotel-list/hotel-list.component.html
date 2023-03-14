@@ -1,0 +1,33 @@
+<div class="container p-1">
+  <div class="d-flex justify-content-center">
+    <button class="btn btn-primary btn-lg m-3" routerLink="/owner/ownerSuccess"><i class="bi bi-arrow-return-left"></i>Return back</button>
+  </div>
+    
+    <div class="card mb-3" style="max-width: 100%; max-height: 200px;"  *ngFor="let hotel of hotelListData">
+        <div class="row g-0">
+          <div class="col-md-4 p-1">
+            <img src={{hotel.image}} width="225px" class="img-fluid rounded-start" alt="hotel">
+          </div>
+          <div class="col-md-6 mt-2">
+            <div class="card-body">
+              <h5 class="card-title"><span class="me-5">{{hotel.hotelName}}</span></h5>
+              <span class="ms-3"><i class="bi bi-star"></i> {{hotel.rating}}</span>
+              <p class="card-text"><span><h5><i class="bi bi-geo-alt"></i> {{hotel.address}}</h5></span></p>
+              <p class="mb-0"><small class="text-muted ">{{hotel.roomSiz}}</small></p>
+              <p class="mt-0"><small class="text-muted">{{hotel.roomDis}}</small></p>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="mt-5">
+                <h3>{{hotel.price | currency: 'INR':'symbol':"1.0-2"}}</h3>
+                <h3><button class="btn btn-outline-info" (click)="editHotel(hotel.id)" routerLink="/owner/editHotel">
+                    <i class="bi bi-building-fill-gear"></i> Edit Hotel</button>
+                </h3>
+                <h3><button class="btn btn-outline-danger" (click)="deleteHotel(hotel.id)">
+                  <i class="bi bi-trash3-fill"></i> Delete Hotel</button>
+                </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

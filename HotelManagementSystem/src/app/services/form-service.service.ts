@@ -28,7 +28,9 @@ export class FormServiceService {
 
   // Checking authentication of user/admin/owner
   varifySignin(){
-    return this.apiRequest.get('http://localhost:3000')
+    console.log(this.userUrl);
+    return this.apiRequest.get(this.userUrl)
+    
   }
 
 

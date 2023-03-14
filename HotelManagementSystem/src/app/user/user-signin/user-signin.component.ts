@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FormServiceService } from 'src/app/services/form-service.service';
 
 @Component({
@@ -8,17 +9,35 @@ import { FormServiceService } from 'src/app/services/form-service.service';
   styleUrls: ['./user-signin.component.scss']
 })
 export class UserSigninComponent {
-
+  interedValue!: any;
+  apiData!: any;
+  matchFound!: any;
   @ViewChild('signin') signinForm!: NgForm
   
-  constructor(private formServ: FormServiceService){ }
+  constructor(private formServ: FormServiceService, private router: Router){ }
 
-  onSubmitSignin(){
-    console.log(this.signinForm);
-    this.formServ.varifySignin().subscribe((data) => {
-      console.log(data);
+  async onSubmitSignin(){
+    this.interedValue = this.signinForm.value;
+    console.log(this.interedValue);
+    this.apiData = await this.formServ.varifySignin().toPromise()    
+    console.log(this.apiData)
+    this.matchFound = await this.apiData.filter((ele:any) =>{
+      return ele.uname == this.interedValue.uname && ele.password == this.interedValue.password
     })
+    console.log(this.matchFound);
+    if(this.matchFound.length){
+      alert(`wel-come ${this.matchFound[0].firstname}`);
+      this.router.navigateByUrl('/user/userSuccess')
+    }else{
+      console.log(`User not found`);
+      
+    }
     
+    // this.matchFound = this.apiData.forEach((element:any) => {
+    //   if(element.uname == this.interedValue.uname && element.password == this.interedValue.password) {
+    //     console.log(`wel-come ${element.firstname}`);
+    //   }
+    // });
   }
   
   

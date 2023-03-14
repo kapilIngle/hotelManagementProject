@@ -41,12 +41,13 @@ export class SignupFormComponent implements OnInit{
   
   // setting up get request
   onSubmitDetails(){
-    console.log(this.signupFormData);
+    console.log(this.signupFormData.value);
     let formValues = this.signupFormData.value;
     this.formserv.addUsers(formValues).subscribe((userInfo)=>{
       console.log(userInfo);
     }, (err)=> { console.log(err);
     })
+    
     this.signupFormData.reset();
     this.sucessMsg = false;
           
