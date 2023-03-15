@@ -41,4 +41,11 @@ export class DataService {
   deleteHotel(id: number){
     return this.apiReq.delete(`${this.hotelListUrl}${id}`)
   }
+
+  getUsersList(){
+    return this.apiReq.get("http://localhost:3000/users")
+  }
+  getOwnerList(){
+    return this.apiReq.get("http://localhost:3000/owner")
+  }
 }
