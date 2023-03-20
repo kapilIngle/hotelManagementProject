@@ -10,6 +10,7 @@ export class FormServiceService {
 
   selectedModule!: string;
   userUrl!: string;
+  navButton = true;
   
   moduleNavigation(modul: string){
     this.selectedModule = modul;

@@ -9,12 +9,24 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class HotelListComponent {
   hotelListData!: any;
+  
+  // search functionality
+  apiHotelData!: any;
+  _searchValue!: string;
+  get searchValue(){
+    return this._searchValue;
+  }
+  set searchValue(value: string){
+    this._searchValue = value.toLowerCase();
+    this.hotelListData = this.searchHotels();
+  }
 
   constructor(private dataServ: DataService, private router: Router){ }
 
   ngOnInit(){
     this.dataServ.getHotelList().subscribe((list)=>{
-      this.hotelListData = list;
+      this.apiHotelData = list;
+      this.hotelListData = this.apiHotelData;
       console.log(this.hotelListData);
       
     })
@@ -31,5 +43,20 @@ export class HotelListComponent {
       
     }
   }
+
+  // search functionality
+  searchHotels(){
+    this.hotelListData = this.apiHotelData;
+    if(this.searchValue === ""){
+      return this.hotelListData = this.apiHotelData;
+    }else{
+      return this.hotelListData.filter((hotel: any)=>{
+        return JSON.stringify(hotel).toLowerCase().includes(this.searchValue)
+      })
+    }
+
+    
+  }
+
 
 }

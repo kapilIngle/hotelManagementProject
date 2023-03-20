@@ -1,4 +1,13 @@
 <div class="container p-1">
+    <div class="row">
+      <div class="col-1 mb-2" routerLink="/home"><i class="bi bi-arrow-left-circle-fill fs-1 text-primary"></i></div>
+      <div class="col-10">
+        <div class="d-flex justify-content-center" role="search">
+        <input class="form-control me-2 w-50" type="text" placeholder="Search" aria-label="Search" [(ngModel)]="searchInput">
+        </div>
+      </div>
+      <div class="col-1"></div>
+    </div>
     <div class="card mb-3" style="max-width: 100%; max-height: 200px;"  *ngFor="let hotel of hotelListData">
         <div class="row g-0">
           <div class="col-md-4 p-1">
@@ -15,8 +24,8 @@
           </div>
           <div class="col-md-2">
             <div class="mt-5">
-                <h3>{{hotel.price | currency: 'INR':true:"1.0-2"}}</h3>
-                <h3><button class="btn btn-success" routerLink="/user/booking">Book Now</button></h3>
+                <h3>{{hotel.price | currency: 'INR':'symbol':"1.0-2"}}</h3>
+                <h3><button class="btn btn-success" routerLink="/user/booking" (click)="displayHotel(hotel.id)">Book Now</button></h3>
             </div>
           </div>
         </div>

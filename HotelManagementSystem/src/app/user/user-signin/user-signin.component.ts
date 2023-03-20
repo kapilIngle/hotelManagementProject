@@ -29,7 +29,7 @@ export class UserSigninComponent {
       alert(`wel-come ${this.matchFound[0].firstname}`);
       this.router.navigateByUrl('/user/userSuccess')
     }else{
-      console.log(`User not found`);
+      alert(`User not found`);
       
     }
     

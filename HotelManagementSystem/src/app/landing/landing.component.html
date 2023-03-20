@@ -1,1 +1,19 @@
-<h1 class="bg-danger">landing works!</h1>
+<div class="container">
+    <div class="child row">
+        <div class="effect col text-center" routerLink="/user"
+        (click)="userModuleSelected()">
+            <img src="../../assets/focus.png" width="150px" alt="">
+            <div><h3 class="fs-2 mt-5">User</h3></div>
+        </div>
+        <div class="effect col text-center" routerLink="/owner"
+        (click)="ownerModuleSelected()">
+            <img src="../../assets/home.png" width="150px" alt="">
+            <div><h3 class="fs-2 mt-5">Owner</h3></div>
+        </div>
+        <div class="effect col text-center" routerLink="/admin"
+        (click)="adminModuleSelected()">
+            <img src="../../assets/key.png" width="150px" alt="">
+            <div><h3 class="fs-2 mt-5">Admin</h3></div>
+        </div>
+    </div>
+</div>

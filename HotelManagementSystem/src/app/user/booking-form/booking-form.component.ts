@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-booking-form',
@@ -8,13 +9,18 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class BookingFormComponent {
   hide = true;
-  email = new FormControl('', [Validators.required, Validators.email]);
+  hotelTobeBooked!: any;
+  hotelName!: string;
   bookingFormData!: FormGroup;
 
-  constructor(private formbuild: FormBuilder){ }
+  constructor(private formbuild: FormBuilder, private dataServ: DataService){ }
 
   ngOnInit(){
     this.settingBookingForm();
+    this.hotelTobeBooked = this.dataServ.selectedHotel;
+    // this.hotelName = this.hotelTobeBooked.hotelName
+    console.log(this.hotelTobeBooked);
+    
   }
   ngAfterViewInit(){
     // this.settingBookingForm();
@@ -22,13 +28,13 @@ export class BookingFormComponent {
 
   settingBookingForm(){
     this.bookingFormData = this.formbuild.group({
-      fname: [""],
-      lname: [""],
-      email: [""],
-      mobile: [""],
+      fname: ["", [Validators.required, this.nospace]],
+      lname: ["", [Validators.required, this.nospace]],
+      email: ["", [Validators.required, Validators.email]],
+      mobile: ["", [Validators.required, this.nospace]],
       arrivalDate: [""],
       departureDate: [""],
-      guests: [],
+      guests: [1],
       address: [""],
       city: [""],
       state: [""],
@@ -38,15 +44,35 @@ export class BookingFormComponent {
   }
 
   onSubmit(){
-    console.log(this.bookingFormData.value);
-    
+    console.log(this.bookingFormData);
+    console.log(this.bookingFormData.value);    
   }
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
+  // getErrorMessage() {
+  //   if (this.email.hasError('required')) {
+  //     return 'You must enter a value';
+  //   }
+
+  //   return this.email.hasError('email') ? 'Not a valid email' : '';
+  // }
+  // getNospaceErrorMessage() {
+  //   if (this.fname.hasError('required')) {
+  //     return 'You must enter a value';
+  //   }
+
+  //   return this.fname.hasError('nospace') ? '' : 'No space allowed';
+  // }
+
+  nospace(control: FormControl){
+    if(control.value != null && control.value.indexOf(" ") != -1){
+      return {nospace : true};
+      // return null;
+      
+    }else{
+      return null;
+      // return {nospace : true};
     }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
   }
+
+ 
 }

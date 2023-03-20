@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormServiceService } from 'src/app/services/form-service.service';
 
@@ -21,13 +21,13 @@ export class SignupFormComponent implements OnInit{
   signupFormData!: FormGroup;
   settingFormData(){
     this.signupFormData = this.formBuilder.group({
-      firstname: ["", Validators.required],
-      lastname: ["", Validators.required],
-      mobile: ["", Validators.required],
+      firstname: ["", [Validators.required, this.nospace]],
+      lastname: ["", [Validators.required, this.nospace]],
+      mobile: ["", [Validators.required, this.nospace]],
       mail: ["", [Validators.required, Validators.email]],
-      uname: ["", Validators.required],
-      password: ["", Validators.required],
-      confirmPassword: ["", Validators.required],
+      uname: ["", [Validators.required, this.nospace]],
+      password: ["", [Validators.required, this.nospace]],
+      confirmPassword: ["", [Validators.required, this.nospace]],
       gender: ["", Validators.required],
       hobbies: [""],
       
@@ -42,6 +42,7 @@ export class SignupFormComponent implements OnInit{
   // setting up get request
   onSubmitDetails(){
     console.log(this.signupFormData.value);
+    console.log(this.signupFormData);
     let formValues = this.signupFormData.value;
     this.formserv.addUsers(formValues).subscribe((userInfo)=>{
       console.log(userInfo);
@@ -60,6 +61,14 @@ export class SignupFormComponent implements OnInit{
 
   closerNotification(){
     this.notificationOn = false;
+  }
+
+  nospace(control: FormControl){
+    if(control.value != null && control.value.indexOf(" ") != -1){
+      return {nospace: true};
+    }else{
+      return null;
+    }
   }
 
 }

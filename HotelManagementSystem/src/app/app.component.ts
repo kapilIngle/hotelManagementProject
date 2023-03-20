@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { FormServiceService } from './services/form-service.service';
 
 @Component({
@@ -6,8 +6,9 @@ import { FormServiceService } from './services/form-service.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements DoCheck{
   title = 'HotelManagementSystem';
+  navButton = false;
   
   constructor( private formServ: FormServiceService){ }
 
@@ -22,5 +23,9 @@ export class AppComponent {
   ownerModuleSelected(){
     let selectedModule = "owner";
     this.formServ.moduleNavigation(selectedModule);
+  }
+
+  ngDoCheck(){
+    this.navButton = this.formServ.navButton
   }
 }

@@ -1,13 +1,14 @@
 .container{
     width: 99vw;
     height: 87vh;
-    overflow: scroll;
+    overflow: auto;
     overflow-x: hidden;
     
 }
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
+    // opasity is not working here
   }
   
   /* Track */

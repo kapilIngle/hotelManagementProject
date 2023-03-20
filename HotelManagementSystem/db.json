@@ -71,6 +71,30 @@
       "gender": "female",
       "hobbies": true,
       "id": 6
+    },
+    {
+      "firstname": "Kuldeep",
+      "lastname": "Ingle",
+      "mobile": "1234567890",
+      "mail": "kulu@example.com",
+      "uname": "kuldeepl@123",
+      "password": "12345",
+      "confirmPassword": "12345",
+      "gender": "male",
+      "hobbies": true,
+      "id": 7
+    },
+    {
+      "firstname": "Maroti",
+      "lastname": "Jadhav",
+      "mobile": "2233445566",
+      "mail": "mj@example.in",
+      "uname": "maroti@123",
+      "password": "12345",
+      "confirmPassword": "12345",
+      "gender": "male",
+      "hobbies": true,
+      "id": 8
     }
   ],
   "admins": [

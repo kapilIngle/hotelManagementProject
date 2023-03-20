@@ -10,7 +10,7 @@ export class DataService {
 
   constructor(private apiReq: HttpClient) { }
   
-  // trasferring data from :  hotel-list -> edit-hotel
+  // transferring data from :  hotel-list -> edit-hotel
   // hotelEvent = new EventEmitter<any>();
 
   getHotelList(){
@@ -20,6 +20,7 @@ export class DataService {
   // for setting edit flag and edit end point
   editUrl!: string;
   editClicked = false;
+  selectedHotel!: any;
   
   idSet(id: number){
     this.editUrl= `${this.hotelListUrl}${id}`;
@@ -48,4 +49,8 @@ export class DataService {
   getOwnerList(){
     return this.apiReq.get("http://localhost:3000/owner")
   }
+
+  
+
+
 }
