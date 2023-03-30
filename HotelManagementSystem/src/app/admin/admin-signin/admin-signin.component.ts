@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { FormServiceService } from 'src/app/services/form-service.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class AdminSigninComponent {
   apiData!: any;
   matchFound!: any;
   
-  constructor(private formServ: FormServiceService, private router: Router){ }
+  constructor(private formServ: FormServiceService, private router: Router, private toaster: ToastrService){ }
 
   @ViewChild('signin') signinForm!: NgForm;
 
@@ -27,10 +28,12 @@ export class AdminSigninComponent {
     })
     console.log(this.matchFound);
     if(this.matchFound.length){
-      alert(`wel-come ${this.matchFound[0].firstname}`);
+      // alert(`wel-come ${this.matchFound[0].firstname}`);
+      this.toaster.success(`wel-come ${this.matchFound[0].firstname}`, `Successfully Loggedin`);
       this.router.navigateByUrl('/admin/adminSuccess')
     }else{
-      console.log(`User not found`);
+      console.log(`Admin not found`);
+      this.toaster.error(`Check your username & password`, `Admin not found`);
       
     }
     // this.apiData.forEach((element:any) => {

@@ -1,30 +1,37 @@
 <div *ngIf="sucessMsg">
   
-  <div class="container mt-4 pt-4 pb-2 rounded px-3 bg-light" style="width: 440px;">
+  <div class="container mt-2 pt-4 pb-2 rounded px-3 bg-light" style="width: 440px;">
     <form [formGroup]="signupFormData" (ngSubmit)="onSubmitDetails()">
       <div class="mb-2">
         <input type="text" class="form-control" id="fname" placeholder="First Name" formControlName="firstname">
+        <small class="text-danger" *ngIf="signupFormData.controls['firstname'].touched && signupFormData.controls['firstname'].invalid">Enter valid name</small>
       </div>
       <div class="mb-2">
         <input type="text" class="form-control" id="lname" placeholder="Last Name" formControlName="lastname">
+        <small class="text-danger" *ngIf="signupFormData.controls['lastname'].touched && signupFormData.controls['lastname'].invalid">Enter valid lastname</small>
       </div>
       <div class="mb-2">
-        <input type="tel" class="form-control" id="mobile" placeholder="Mobile No" pattern="[0-9]{10}"
-          formControlName="mobile">
+        <input type="tel" class="form-control" id="mobile" placeholder="Mobile No" pattern="[0-9]{10}"formControlName="mobile">
+        <small class="text-danger" *ngIf="signupFormData.controls['mobile'].touched && signupFormData.controls['mobile'].invalid">Enter valid mobile number</small>
       </div>
       <div class="mb-2">
         <input type="email" class="form-control" id="mail" placeholder="Email" formControlName="mail">
+        <small class="text-danger" *ngIf="signupFormData.controls['mail'].touched && signupFormData.controls['mail'].invalid">Enter valid mobile number</small>
       </div>
       <div class="mb-2">
         <input type="text" class="form-control" id="uname" placeholder="Set Username" formControlName="uname">
+        <small class="text-danger" *ngIf="signupFormData.controls['uname'].touched && signupFormData.controls['uname'].invalid">Must enter some value here</small>
       </div>
       <div class="mb-2">
         <input type="password" class="form-control" id="password" placeholder="Set Password" formControlName="password"
-          autocomplete="off">
+          autocomplete="off" #pass (blur)="getPass(pass.value)">
       </div>
       <div class="mb-2">
         <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password"
-          formControlName="confirmPassword" autocomplete="off">
+          formControlName="confirmPassword" autocomplete="off"
+          #cpass (blur)="getCpass(cpass.value)">
+          <small *ngIf="!match && signupFormData.controls['confirmPassword'].touched && signupFormData.controls['password'].touched" 
+          class="text-danger">Confirm password must be same as entered password</small>
       </div>
       <div class="mb-3">
         <b><label for="gender">Gender : </label></b>
@@ -48,7 +55,7 @@
         <input type="checkbox" class="form-check-input me-2" id="reading" formControlName="hobbies">
         <label class="form-check-label" for="reading">Reading</label>
       </div>
-      <button type="submit" class="btn btn-success w-100" [disabled]="!signupFormData.valid" (click)="onClickToaster()">Submit</button>
+      <button type="submit" class="btn btn-success w-100" [disabled]="!(match && signupFormData.valid)" (click)="onClickToaster()">Submit</button>
       
     </form>
     <div class="text-center mt-2">

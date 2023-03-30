@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { LandingComponent } from './landing/landing.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     // angular material
     MatToolbarModule,
     MatIconModule,

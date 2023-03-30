@@ -12,10 +12,22 @@ export class SignupFormComponent implements OnInit{
 
   sucessMsg = true;
   notificationOn = true;
+  pass!: string;
+  cPass!: string;
+  match: boolean = false;
+  // get pass(){
+  //   return this._pass;
+  // }
+  // set pass(value: string){
+  //   this._pass = value;
+  //   console.log(this.pass);
+  // }
+
   constructor(private formserv: FormServiceService, private formBuilder: FormBuilder, private router: Router){ }
   
   ngOnInit(){
     this.settingFormData();
+    
   }
 
   signupFormData!: FormGroup;
@@ -70,5 +82,36 @@ export class SignupFormComponent implements OnInit{
       return null;
     }
   }
+  // confirm password functionality
+  getPass(passInput: string){
+    this.pass = passInput;
+    console.log(this.pass);
+
+    if(this.cPass){
+      if(this.pass === this.cPass){
+        console.log('password matched');
+        this.match = true;
+        
+      }else{
+        console.log('password not matched');
+        this.match = false;
+      }
+    }
+    
+  }
+  getCpass(cPassInput: string){
+    this.cPass = cPassInput
+    
+    if(this.pass){
+      if(this.pass === this.cPass){
+        console.log('password matched');
+        this.match = true;
+      }else{
+        console.log('password not matched');
+        this.match = false;
+      }
+    }
+  }
+
 
 }

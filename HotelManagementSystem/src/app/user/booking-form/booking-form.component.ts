@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -13,7 +15,7 @@ export class BookingFormComponent {
   hotelName!: string;
   bookingFormData!: FormGroup;
 
-  constructor(private formbuild: FormBuilder, private dataServ: DataService){ }
+  constructor(private formbuild: FormBuilder, private dataServ: DataService, private router: Router, private toaster: ToastrService){ }
 
   ngOnInit(){
     this.settingBookingForm();
@@ -45,7 +47,10 @@ export class BookingFormComponent {
 
   onSubmit(){
     console.log(this.bookingFormData);
-    console.log(this.bookingFormData.value);    
+    console.log(this.bookingFormData.value);
+    // alert("Hotel Booked Successfully");
+    this.toaster.success(`Hotel Booked`,`Successful`)
+    this.router.navigateByUrl('/user/userSuccess');
   }
 
   // getErrorMessage() {
