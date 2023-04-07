@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="child row">
         <div class="effect col text-center" routerLink="/user"
         (click)="userModuleSelected()">
@@ -16,4 +16,50 @@
             <div><h3 class="fs-2 mt-5">Admin</h3></div>
         </div>
     </div>
+</div> -->
+<div class="container text-center navigation">
+    <button class="nav-button button1" routerLink="/user" (click)="userModuleSelected()">
+        <i class="bi bi-person-circle me-2 fs-3"></i> User
+    </button>
+    <button class="nav-button button2" routerLink="/admin"
+    (click)="adminModuleSelected()">
+        <i class="bi bi-person-fill-gear me-2 fs-3"></i> Admin
+    </button>
+    <button class="nav-button button3" routerLink="/owner"
+    (click)="ownerModuleSelected()">
+        <i class="bi bi-key me-2 fs-3"></i> Owner
+    </button>
 </div>
+
+<div class="crousal-container">
+    <ngb-carousel *ngIf="images" [pauseOnHover]="false">
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img class="crousal-img" [src]="images[0]" alt="Random first slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3>Plan your Goa trip</h3>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img class="crousal-img" [src]="images[1]" alt="Random second slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3>Plan your Jammu & Kashmir trip</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img class="crousal-img" [src]="images[2]" alt="Random third slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3>Plan your Mumbai trip</h3>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+</div>
+

@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { LandingComponent } from './landing/landing.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ToastrModule } from 'ngx-toastr';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
@@ -24,12 +27,14 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    // NgbCarouselModule,
     // angular material
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     HttpClientModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
