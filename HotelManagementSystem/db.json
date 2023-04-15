@@ -107,6 +107,18 @@
       "gender": "male",
       "hobbies": true,
       "id": 9
+    },
+    {
+      "firstname": "Chetan",
+      "lastname": "Khandelote",
+      "mobile": "1234567890",
+      "mail": "chetan@test.com",
+      "uname": "chetan@123",
+      "password": "12345",
+      "confirmPassword": "12345",
+      "gender": "male",
+      "hobbies": true,
+      "id": 10
     }
   ],
   "admins": [
@@ -286,7 +298,7 @@
       "id": 9
     },
     {
-      "hotelName": "Palm Meadows Resort kapil",
+      "hotelName": "Palm Meadows Resort",
       "rating": "4.2",
       "price": 18800,
       "roomSiz": "288 sq.ft",

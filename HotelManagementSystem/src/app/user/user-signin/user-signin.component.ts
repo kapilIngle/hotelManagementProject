@@ -30,6 +30,9 @@ export class UserSigninComponent {
     if(this.matchFound.length){
       // alert(`wel-come ${this.matchFound[0].firstname}`);
       this.toaster.success(`wel-come ${this.matchFound[0].firstname}`,`Successfully Loggedin`);
+      // authorization
+      this.formServ.onAuthorizedUser();
+      // navigation
       this.router.navigateByUrl('/user/userSuccess')
     }else{
       // alert(`User not found`);

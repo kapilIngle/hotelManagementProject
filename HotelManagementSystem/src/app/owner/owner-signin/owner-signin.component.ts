@@ -30,7 +30,9 @@ export class OwnerSigninComponent {
     console.log(this.matchFound);
     if(this.matchFound.length){
       // alert(`wel-come ${this.matchFound[0].firstname}`);
-      this.toaster.success(`wel-come ${this.matchFound[0].firstname}`, `Successfully Loggedin`)
+      this.toaster.success(`wel-come ${this.matchFound[0].firstname}`, `Successfully Loggedin`);
+      // authentication
+      this.formServ.onAuthorizedOwner();
       this.router.navigateByUrl('/owner/ownerSuccess')
     }else{
       console.log(`Owner not found`);

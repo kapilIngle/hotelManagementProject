@@ -34,7 +34,21 @@ export class FormServiceService {
     
   }
 
+  // AuthGuard or RouteGuard
 
+  authorizedUser: boolean = false;
+  onAuthorizedUser(){
+    this.authorizedUser = true;
+  }
 
+  authorizedOwner: boolean = false;
+  onAuthorizedOwner(){
+    this.authorizedOwner = true;
+  }
+  
+  authorizedAdmin: boolean = false;
+  onAuthorizedAdmin(){
+    this.authorizedAdmin = true;
+  }
 
 }
